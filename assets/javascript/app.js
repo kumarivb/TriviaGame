@@ -3,6 +3,7 @@ $(document).ready(function() {
 
 // --------------------------- Variables -------------------
 var questions = [
+// question 1
     {
         question: "How many toes does a sloth have on each foot?",
         answers: {
@@ -13,6 +14,7 @@ var questions = [
         },
             correctAnsw: "c",
     },
+// question 2
     {
         question: "How many times a week do sloths defecate?",
         answers: {
@@ -23,6 +25,7 @@ var questions = [
         },
             correctAnsw: "a",
     },
+// question 3
     {
         question: "A sloth has a _-part stomach.",
         answers: {
@@ -33,6 +36,7 @@ var questions = [
         },
             correctAnsw: "d",
     },
+// question 4
     {
         question: "Sloths are great swimmers.",
         answers: {
@@ -41,6 +45,7 @@ var questions = [
         },
             correctAnsw: "a",
     },
+// question 5
     {
         question: "Sloths can live up to how many years?",
         answers: {
