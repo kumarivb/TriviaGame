@@ -58,9 +58,9 @@ var questions = [
     },
 ];
 
-var correctAnsw;
-var wrongAnsw;
-var unAnsw;
+var correctAnswCount;
+var wrongAnswCount;
+var unAnswCounter;
 
 var timer;
 var timerRunning = false;
@@ -68,9 +68,38 @@ var timerRunning = false;
 var startBtn;
 
 // -------------------- Functions and Processes -------------
-      $("#startBtn").on("click", function() {
-        alert("I've been clicked!");
-      });
+    // initializeGame
+    function initializeGame() {
+        $("#startPage").show();
+        $("#questionsContent").hide();
+        $("#allDone").hide();
+        correctAnswCounter = 0;
+        wrongAnswCounter = 0;
+        unAnswCounter = 0;
+
+        // start button
+        $("#startBtn").on("click", function() {
+            $("#startPage").hide();
+            $("#questionsContent").show();
+            $("#allDone").hide();
+        });
+    };
+
+    // timer
+
+
+    // questions
+
+
+    // done button
+
+
+
+
+
+
+
+
 
 
 // -------------------- HTML --------------------------------
@@ -80,5 +109,5 @@ var startBtn;
 
 
 
-
+    initializeGame();
 });
