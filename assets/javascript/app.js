@@ -1,7 +1,7 @@
 // make sure JavaScript doesn't run until the HTML has finished loading
 $(document).ready(function() {
 
-// -------------------- Global Variables --------------------
+// --------------------------- Variables -------------------
 var questions = [
     {
         question: "How many toes does a sloth have on each foot?",
@@ -23,14 +23,49 @@ var questions = [
         },
             correctAnsw: "a",
     },
+    {
+        question: "A sloth has a _-part stomach.",
+        answers: {
+            a: "3",
+            b: "9",
+            c: "6",
+            d: "4",
+        },
+            correctAnsw: "d",
+    },
+    {
+        question: "Sloths are great swimmers.",
+        answers: {
+            a: "True",
+            b: "False",
+        },
+            correctAnsw: "a",
+    },
+    {
+        question: "Sloths can live up to how many years?",
+        answers: {
+            a: "10",
+            b: "20",
+            c: "30",
+            d: "40",
+        },
+            correctAnsw: "30",
+    },
 ];
 
 var correctAnsw;
 var wrongAnsw;
 var unAnsw;
 
-// -------------------- Functions and Processes -------------
+var timer;
+var timerRunning = false;
 
+var startBtn;
+
+// -------------------- Functions and Processes -------------
+      $("#startBtn").on("click", function() {
+        alert("I've been clicked!");
+      });
 
 
 // -------------------- HTML --------------------------------
