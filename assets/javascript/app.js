@@ -2,10 +2,9 @@
 $(document).ready(function() {
 
 // --------------------------- Variables -------------------
-var correctAnswCount = 0;
-var wrongAnswCount = 0;
-var unAnswCounter = 0;
-var clickedAnsw;
+var correctAnswCount;
+var wrongAnswCount;
+var unAnswCounter;
 
 var timer = 60;
 var timerCounter;
@@ -19,12 +18,13 @@ var stop = function(){
 };
 
 var decrement = function(){
+    console.log(timer--);
     $('.timerContent').html('<h2>Time remaining: ' + timer + ' Seconds' + '</h2>');
     if (timer === 0) {
         stop();
         $("#triviaContent").hide();
         $("#allDone").show();
-        console.log('3rd page');
+        console.log('out of time');
     };
 };
 
@@ -34,55 +34,32 @@ var questions = [
 // question 1
     {
         question: "How many toes does a sloth have on each foot?",
-        answers: {
-            a: "4",
-            b: "7",
-            c: "3",
-            d: "2",
-        },
-            correctAnsw: "c",
+        answers: ["4", "7", "3", "2"],
+        correctAnsw: "3",
     },
 // question 2
     {
         question: "How many times a week do sloths defecate?",
-        answers: {
-            a: "1",
-            b: "2",
-            c: "3",
-            d: "4",
-        },
-            correctAnsw: "a",
+        answers: ["1", "2", "3", "4"],
+        correctAnsw: "1",
     },
 // question 3
     {
         question: "A sloth has a _-part stomach.",
-        answers: {
-            a: "3",
-            b: "9",
-            c: "6",
-            d: "4",
-        },
-            correctAnsw: "d",
+        answers: ["3", "9", "6", "4"],
+        correctAnsw: "4",
     },
 // question 4
     {
         question: "Sloths are great swimmers.",
-        answers: {
-            a: "True",
-            b: "False",
-        },
-            correctAnsw: "a",
+        answers: ["True", "False"],
+        correctAnsw: "True",
     },
 // question 5
     {
         question: "Sloths can live up to how many years?",
-        answers: {
-            a: "10",
-            b: "20",
-            c: "30",
-            d: "40",
-        },
-            correctAnsw: "c",
+        answers: ["10", "20", "30", "40"],
+        correctAnsw: "30",
     },
 ];
 
@@ -98,18 +75,24 @@ var questions = [
 };
 
     // start button
-    $("#startBtn").click(countdown);
+    //$("#startBtn").click(countdown);
     $("#startBtn").on("click", function() {
         $("#startPage").hide();
         $("#triviaContent").show();
         $("#allDone").hide();
     });
 
-
-    // timer
-;
-
     // questions
+    for (var i = 0; i < questions.length; i ++) {
+        $('.questionsContent').append(
+            '<h2>' + questions[i].question + '</h2>');
+
+    // answers, used var=j bacause I think it is standard practice
+        for (var j = 0; j < questions[i].answers.length; j ++) {
+            $('.answerContent').append(
+                );
+        };
+    };
 
 
     // done button
