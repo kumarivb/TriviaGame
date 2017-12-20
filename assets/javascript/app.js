@@ -2,6 +2,34 @@
 $(document).ready(function() {
 
 // --------------------------- Variables -------------------
+var correctAnswCount = 0;
+var wrongAnswCount = 0;
+var unAnswCounter = 0;
+var clickedAnsw;
+
+var timer = 60;
+var timerCounter;
+
+var countdown = function(){
+    timerCounter = setInterval(decrement, 1000);
+};
+
+var stop = function(){
+    clearInterval(timerCounter);
+};
+
+var decrement = function(){
+    $('.timerContent').html('<h2>Time remaining: ' + timer + ' Seconds' + '</h2>');
+    if (timer === 0) {
+        stop();
+        $("#triviaContent").hide();
+        $("#allDone").show();
+        console.log('3rd page');
+    };
+};
+
+var startBtn;
+
 var questions = [
 // question 1
     {
@@ -54,39 +82,32 @@ var questions = [
             c: "30",
             d: "40",
         },
-            correctAnsw: "30",
+            correctAnsw: "c",
     },
 ];
-
-var correctAnswCount;
-var wrongAnswCount;
-var unAnswCounter;
-
-var timer;
-var timerRunning = false;
-
-var startBtn;
 
 // -------------------- Functions and Processes -------------
     // initializeGame
     function initializeGame() {
         $("#startPage").show();
-        $("#questionsContent").hide();
+        $("#triviaContent").hide();
         $("#allDone").hide();
         correctAnswCounter = 0;
         wrongAnswCounter = 0;
         unAnswCounter = 0;
+};
 
-        // start button
-        $("#startBtn").on("click", function() {
-            $("#startPage").hide();
-            $("#questionsContent").show();
-            $("#allDone").hide();
-        });
-    };
+    // start button
+    $("#startBtn").click(countdown);
+    $("#startBtn").on("click", function() {
+        $("#startPage").hide();
+        $("#triviaContent").show();
+        $("#allDone").hide();
+    });
+
 
     // timer
-
+;
 
     // questions
 
