@@ -6,7 +6,7 @@ var correctAnswCount;
 var wrongAnswCount;
 var unAnswCounter;
 
-var timer = 60;
+var timer = 10;
 var timerCounter;
 
 var countdown = function(){
@@ -19,7 +19,7 @@ var stop = function(){
 
 var decrement = function(){
     console.log(timer--);
-    $('.timerContent').html('<h2>Time remaining: ' + timer + ' Seconds' + '</h2>');
+    $('.timerContent').html('<h2>You only have ' + timer + ' seconds left!' + '</h2>');
     if (timer === 0) {
         stop();
         $("#triviaContent").hide();
@@ -75,7 +75,7 @@ var questions = [
 };
 
     // start button
-    //$("#startBtn").click(countdown);
+//$("#startBtn").click(countdown);
     $("#startBtn").on("click", function() {
         $("#startPage").hide();
         $("#triviaContent").show();
@@ -84,21 +84,61 @@ var questions = [
 
     // questions
     for (var i = 0; i < questions.length; i ++) {
-        $('.questionsContent').append(
-            '<h2>' + questions[i].question + '</h2>');
+        $('.questionsContent').append('<h3>' + questions[i].question + '</h3>');
 
     // answers, used var=j bacause I think it is standard practice
         for (var j = 0; j < questions[i].answers.length; j ++) {
-            $('.answerContent').append(
-                );
+            $('.questionsContent').append("<input type='radio' name='question-"+i+"' value='"+questions[i].answers[j]+"'>"+questions[i].answers[j]);
         };
     };
 
+    // check if answer is correct
+    function check() {
+        $.each($("input[name='question-0']:checked"), function() {
+            if($(this).val() === questions[0].correctAnsw) {
+               correctAnswCount++;
+            }
+            else {
+                wrongAnswCounter++;
+            }
+        });
 
-    // done button
+        $.each($("input[name='question-1']:checked"), function() {
+            if($(this).val() === questions[1].correctAnsw) {
+               correctAnswCount++;
+            }
+            else {
+                wrongAnswCounter++;
+            }
+        });
 
+        $.each($("input[name='question-2']:checked"), function() {
+            if($(this).val() === questions[2].correctAnsw) {
+               correctAnswCount++;
+            }
+            else {
+                wrongAnswCounter++;
+            }
+        });
 
+        $.each($("input[name='question-3']:checked"), function() {
+            if($(this).val() === questions[3].correctAnsw) {
+               correctAnswCount++;
+            }
+            else {
+                wrongAnswCounter++;
+            }
+        });
 
+        $.each($("input[name='question-4']:checked"), function() {
+            if($(this).val() === questions[4].correctAnsw) {
+               correctAnswCount++;
+            }
+            else {
+                wrongAnswCounter++;
+            }
+        });
+    };
 
 
 
