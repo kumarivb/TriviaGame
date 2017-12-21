@@ -77,8 +77,9 @@ var questions = [
 };
 
     // start button
-    $("#startBtn").click(countdown);
-    $("#startBtn").on("click", function() {
+        $("#startBtn").html("Start");
+        $("#startBtn").click(countdown);
+        $("#startBtn").on("click", function() {
         $("#startPage").hide();
         $("#triviaContent").show();
         $("#allDone").hide();
@@ -146,6 +147,7 @@ var questions = [
     };
 
     // done button
+        $("#doneBtn").html("Done");
         $("#doneBtn").click(stop);
         $("#doneBtn").on("click", function() {
         $("#startPage").hide();
