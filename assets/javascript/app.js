@@ -2,11 +2,12 @@
 $(document).ready(function() {
 
 // --------------------------- Variables -------------------
-var correctAnswCount;
-var wrongAnswCount;
-var unAnswCounter;
+var correctAnswCount = 0;
+var wrongAnswCount = 0;
+var unAnswCount = 0;
 
-var timer = 10;
+// timer
+var timer = 60;
 var timerCounter;
 
 var countdown = function(){
@@ -22,6 +23,7 @@ var decrement = function(){
     $('.timerContent').html('<h2>You only have ' + timer + ' seconds left!' + '</h2>');
     if (timer === 0) {
         stop();
+        check();
         $("#triviaContent").hide();
         $("#allDone").show();
         console.log('out of time');
@@ -75,7 +77,7 @@ var questions = [
 };
 
     // start button
-//$("#startBtn").click(countdown);
+    $("#startBtn").click(countdown);
     $("#startBtn").on("click", function() {
         $("#startPage").hide();
         $("#triviaContent").show();
@@ -95,53 +97,69 @@ var questions = [
     // check if answer is correct
     function check() {
         $.each($("input[name='question-0']:checked"), function() {
-            if($(this).val() === questions[0].correctAnsw) {
+            if($(this).val() == questions[0].correctAnsw) {
                correctAnswCount++;
             }
             else {
-                wrongAnswCounter++;
+                wrongAnswCount++;
             }
         });
 
         $.each($("input[name='question-1']:checked"), function() {
-            if($(this).val() === questions[1].correctAnsw) {
+            if($(this).val() == questions[1].correctAnsw) {
                correctAnswCount++;
             }
             else {
-                wrongAnswCounter++;
+                wrongAnswCount++;
             }
         });
 
         $.each($("input[name='question-2']:checked"), function() {
-            if($(this).val() === questions[2].correctAnsw) {
+            if($(this).val() == questions[2].correctAnsw) {
                correctAnswCount++;
             }
             else {
-                wrongAnswCounter++;
+                wrongAnswCount++;
             }
         });
 
         $.each($("input[name='question-3']:checked"), function() {
-            if($(this).val() === questions[3].correctAnsw) {
+            if($(this).val() == questions[3].correctAnsw) {
                correctAnswCount++;
             }
             else {
-                wrongAnswCounter++;
+                wrongAnswCount++;
             }
         });
 
         $.each($("input[name='question-4']:checked"), function() {
-            if($(this).val() === questions[4].correctAnsw) {
+            if($(this).val() == questions[4].correctAnsw) {
                correctAnswCount++;
             }
             else {
-                wrongAnswCounter++;
+                wrongAnswCount++;
             }
         });
+        console.log(correctAnswCount);
+        console.log(wrongAnswCount);
+        console.log(unAnswCount);
     };
 
+    // done button
+        $("#doneBtn").click(stop);
+        $("#doneBtn").on("click", function() {
+        $("#startPage").hide();
+        $("#triviaContent").hide();
+        $("#allDone").show();
+        check();
+    });
 
+    // all done
 
+        $(".done").html("<h2>Finished</h2>");
+        $(".done").append("<h3>Correct Answers: "+correctAnswCount+"</h3>");
+        $(".done").append("<h3>Wrong Answers: "+wrongAnswCount+"</h3>");
+        $(".done").append("<h3>Unanswered Questions: "+(questions.length-(wrongAnswCount+correctAnswCount))+"</h3>");
 
 
 
