@@ -14,6 +14,6 @@ A timed trivia game about sloths.
 * HTML
 
 ### Challenges
-All questions after clicking done appeared as unanswered.
+All questions after clicking done appear as unanswered.
 
 https://kumarivb.github.io/TriviaGame/
