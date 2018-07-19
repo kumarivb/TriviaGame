@@ -15,3 +15,5 @@ A timed trivia game about sloths.
 
 ### Challenges
 All questions after clicking done appeared as unanswered.
+
+https://kumarivb.github.io/TriviaGame/
